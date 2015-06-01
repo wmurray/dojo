@@ -1,4 +1,6 @@
-function Fibonacci() {}
+function Fibonacci(n) {
+  this.limit = n;
+}
 
 Fibonacci.prototype.makeSequence = function() {
   var fibSequence = [1];
@@ -9,7 +11,7 @@ Fibonacci.prototype.makeSequence = function() {
       fibSequence.push(num1 + num2);
   };
 
-  while (fibSequence.length < 10) {
+  while (fibSequence.length < this.limit) {
     var add1 = fibSequence.length - 1;
     var add2 = fibSequence.length - 2;
 
@@ -21,13 +23,9 @@ Fibonacci.prototype.makeSequence = function() {
 
 Fibonacci.prototype.getEvens = function() {
   var baseArray = this.makeSequence();
-  var evensArray = [];
-
-  for (var i = 0; i < baseArray.length; i++) {
-    if (baseArray[i] % 2 === 0) {
-      evensArray.push(baseArray[i]);
-    }
-  }
+  var evensArray = _.select(baseArray, function(i){
+    return i % 2 === 0;
+  });
 
   return evensArray;
 };

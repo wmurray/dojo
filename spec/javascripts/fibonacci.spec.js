@@ -1,6 +1,6 @@
 describe("Fibonacci sequence", function() {
     it("correctly generates the Fib sequence", function() {
-      var fib = new Fibonacci();
+      var fib = new Fibonacci(10);
       var sequence = fib.makeSequence();
       var controlArray = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89];
 
@@ -10,7 +10,7 @@ describe("Fibonacci sequence", function() {
     });
 
     it("collects only the even numbers in the sequence", function() {
-      var fib = new Fibonacci();
+      var fib = new Fibonacci(10);
       var sequenceEvens = fib.getEvens();
       var controlArray = [2, 8, 34];
 
@@ -20,7 +20,7 @@ describe("Fibonacci sequence", function() {
     });
 
     it("sums the evens array", function() {
-      var fib = new Fibonacci();
+      var fib = new Fibonacci(10);
       var sumEvens = fib.sumEvens();
 
       expect(sumEvens).toBe(44);
