@@ -23,13 +23,9 @@ Fibonacci.prototype.makeSequence = function() {
 
 Fibonacci.prototype.getEvens = function() {
   var baseArray = this.makeSequence();
-  var evensArray = [];
-
-  for (var i = 0; i < baseArray.length; i++) {
-    if (baseArray[i] % 2 === 0) {
-      evensArray.push(baseArray[i]);
-    }
-  }
+  var evensArray = _.select(baseArray, function(i){
+    return i % 2 === 0;
+  });
 
   return evensArray;
 };
